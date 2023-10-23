@@ -4,9 +4,6 @@ html {
 }
 
 body {
-  --dynamic-color: blue;
-  --dynamic-gradient-color-1: #3a5097;
-  --dynamic-gradient-color-2: #18254e;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -15,6 +12,12 @@ body {
   background-color: #bbb;
   font-family: 'Playfair Display', serif;
 
+  // set defaults
+  --dynamic-color: blue;
+  --dynamic-gradient-color-1: #3a5097;
+  --dynamic-gradient-color-2: #18254e;
+
+  // change color vars based on body class
   &.dynamic_color_orange {
     --dynamic-color: orange;
     --dynamic-gradient-color-1: orange;
@@ -32,20 +35,13 @@ body {
   }
 }
 
-h1, h2, h3 {
-  font-family: 'Lora', serif;
-  margin-top: 0;
-  line-height: 1.1;
-  margin-bottom: 0.5em;
-}
-h1 {
-  font-size: calc(2rem + 2vw);
-}
-
 .box {
-  position: relative;
+  // colors point to vars set based on body class
+  // since vars are set in body class, these properties don't need changing for each case to reflect color changes
   background-color: var(--dynamic-gradient-color-2);
   background: linear-gradient(219deg, var(--dynamic-gradient-color-1) 4%, var(--dynamic-gradient-color-2) 98%);
+  
+  position: relative;
   color: #ffffff;
   width: 90vw;
   max-width: 700px;
@@ -55,6 +51,16 @@ h1 {
   left: 5vw;
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: 'Lora', serif;
+  margin-top: 0;
+  line-height: 1.1;
+  margin-bottom: 0.5em;
+}
+h1 {
+  font-size: calc(2rem + 2vw);
 }
 
 a.color-button {
